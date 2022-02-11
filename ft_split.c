@@ -6,7 +6,7 @@
 /*   By: iwillmot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:08:49 by iwillmot          #+#    #+#             */
-/*   Updated: 2022/02/08 14:44:21 by iwillmot         ###   ########.fr       */
+/*   Updated: 2022/02/11 15:26:38 by iwillmot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,35 @@
 #include <stdlib.h>
 #include "libft.h"
 
-int	leng(char const *s, char c, int i)
+int	curlen(char const *s, char c, int i)
 {
 	int	len;
 
 	len = 0;
-	while ((s[i]) && (s[i] == c))
+	if (s[i] == '\0')
+		return (1);
+	while (s[i] == c)
 		i++;
-	while ((s[i + len]) && (s[i + len] != c))
+	while ((s[i]) && (s[i] != c))
+	{
 		len++;
-	return (len);
+		i++;
+	}
+	return (len + 1);
 }
 
 void	split_assign(char const *s, char **new, char c, int segs)
 {
 	int	i;
-	int	g;
 	int	x;
+	int	g;
 
 	i = 0;
-	g = 0;
 	x = 0;
-	while ((s[i]) && segs > 0)
+	g = 0;
+	while (segs > 1)
 	{
-		new[x] = (char *) malloc(leng(s, c, i) + 1);
+		new[x] = (char *) malloc(curlen(s, c, i));
 		while ((s[i]) && (s[i] == c))
 			i++;
 		while ((s[i]) && (s[i] != c))
@@ -48,12 +53,13 @@ void	split_assign(char const *s, char **new, char c, int segs)
 		}
 		new[x][g] = '\0';
 		x++;
-		segs--;
 		g = 0;
+		segs--;
 	}
+	new[x] = (void *)0;
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		segs;
@@ -61,19 +67,20 @@ char	**ft_split(const char *s, char c)
 
 	i = 0;
 	segs = 0;
-	if (!s)
-		return (0);
 	while (s[i])
 	{
 		if (s[i] != c)
 			if (i == 0 || s[i - 1] == c)
 				segs++;
+		if (s[i + 1] == '\0')
+			segs++;
 		i++;
 	}
-	new = (char **) malloc((segs + 1) * (sizeof(char *)));
+	new = (char **) malloc((segs) * sizeof(char *));
 	split_assign(s, new, c, segs);
 	return (new);
 }
+
 /*
 int main()
 {

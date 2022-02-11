@@ -6,7 +6,7 @@
 #    By: iwillmot <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 14:38:16 by iwillmot          #+#    #+#              #
-#    Updated: 2022/02/08 14:39:44 by iwillmot         ###   ########.fr        #
+#    Updated: 2022/02/11 15:29:12 by iwillmot         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,3 +87,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+bonus: $(OBJECTS_BONUS_PREFIXED)
+	@ar r $(NAME) $(OBJECTS_BONUS_PREFIXED)
+	@echo "Libft Bonus Done !"
