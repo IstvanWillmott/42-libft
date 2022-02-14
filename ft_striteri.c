@@ -6,11 +6,10 @@
 /*   By: iwillmot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/31 14:09:21 by iwillmot          #+#    #+#             */
-/*   Updated: 2022/02/08 12:20:57 by iwillmot         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:06:46 by iwillmot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))

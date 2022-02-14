@@ -6,12 +6,10 @@
 /*   By: iwillmot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 12:08:49 by iwillmot          #+#    #+#             */
-/*   Updated: 2022/02/11 15:26:38 by iwillmot         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:06:12 by iwillmot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "libft.h"
 
 int	curlen(char const *s, char c, int i)
@@ -67,6 +65,8 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	segs = 0;
+	if (!s)
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] != c)
@@ -80,10 +80,3 @@ char	**ft_split(char const *s, char c)
 	split_assign(s, new, c, segs);
 	return (new);
 }
-
-/*
-int main()
-{
-	ft_split("  count    these  segs     ", ' ');
-	return (0);
-}*/

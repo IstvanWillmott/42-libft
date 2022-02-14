@@ -6,7 +6,7 @@
 /*   By: iwillmot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 19:15:37 by iwillmot          #+#    #+#             */
-/*   Updated: 2022/02/09 13:33:57 by iwillmot         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:04:11 by iwillmot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char )c)
 			break ;
 		i--;
 	}

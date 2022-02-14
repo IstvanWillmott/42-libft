@@ -6,11 +6,10 @@
 /*   By: iwillmot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 10:55:48 by iwillmot          #+#    #+#             */
-/*   Updated: 2022/02/07 15:56:47 by iwillmot         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:06:21 by iwillmot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*mall(long int nn, int len, int neg)
